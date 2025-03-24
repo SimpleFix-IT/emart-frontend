@@ -1,0 +1,34 @@
+.hero-section {
+    background-color: #007bff;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Filters Section */
+.filters-section {
+    background-color: #f1f1f1;
+}
+
+.filters-section .form-select,
+.filters-section .form-range {
+    width: 100%;
+}
+
+.filters-section h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.filters-section .btn {
+    font-weight: 600;
+}
