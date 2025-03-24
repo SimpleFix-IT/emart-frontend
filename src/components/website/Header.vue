@@ -83,7 +83,7 @@ const store = useStore();
 const router = useRouter();
 const isNavbarOpen = ref(false);
 const profileImage = ref('');
-
+const token = computed(() => store.getters['auth/getToken']);
 const countUserItem = computed(() => store.getters['userCart/getUserCartItem']);
 
 const handleLogout = async () => {
@@ -107,6 +107,7 @@ const resetNavbarState = () => {
     isNavbarOpen.value = false;
 };
 const fetchUserProfileImage = async () => {
+    if(token.value === null) return;
     try {
         const response = await apiClient.get('/user/profile/image');
         if (response ?.data ?.success) {
@@ -126,7 +127,7 @@ onMounted(() => {
 onUnmounted(() => {
     eventBus.off("profileImageUpdated", fetchUserProfileImage);
 });
-const token = computed(() => store.getters['auth/getToken']);
+
 </script>
 
 <style scoped>

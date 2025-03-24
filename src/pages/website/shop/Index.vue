@@ -51,8 +51,8 @@
         </div>
     </div>
     <!-- Products Grid Section -->
-    <section class="products-grid py-5" v-if="products.length > 0">
-        <div class="container">
+    <section class="products-grid py-5" >
+        <div class="container" v-if="products.length > 0">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col" v-for="product in products" :key="product.id">
                     <div class="card product-card shadow-sm">
@@ -92,6 +92,13 @@
                 </div>
             </div>
         </div>
+        <div v-else-if="!loading && products.length === 0" class="flex flex-col items-center justify-center py-20">
+            <svg class="w-16 h-16 text-gray-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v15m6-15v15m-9 4h12a2 2 0 002-2V6H3v12a2 2 0 002 2z" />
+            </svg>
+            <h3 class="text-2xl font-semibold text-gray-600">No Products Found</h3>
+            <p class="text-gray-500 mt-2">Try adjusting your filters or check back later.</p>
+        </div>
     </section>
 </div>
 </template>
@@ -121,7 +128,7 @@ import Slider from "@vueform/slider";
 //     setup() {
 const wishlist = reactive(new Set());
 const products = ref([]);
-const loading = ref('');
+const loading = ref(true);
 const isExpanded = ref({});
 const store = useStore();
 const router = useRouter();
