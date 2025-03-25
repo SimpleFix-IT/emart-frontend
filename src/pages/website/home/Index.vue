@@ -145,15 +145,16 @@ const fetchCategories = async () => {
         if (response.data.success) {
             loading.value = false;
             categories.value = response.data.allCategories;
-            showToast("success", "Categories found successfully.");
+            // showToast("success", "Categories found successfully.");
         } else {
             throw new Error('Failed to fetch categories');
         }
     } catch (error) {
         if (error.response && error.response.status === 404) {
-            showToast("error", "Categories not found.");
+            // showToast("error", "Categories not found.");
         } else {
-            showToast("error", "An error occurred while fetching categories.");
+            console.error('Error fetching categories:', error);
+            // showToast("error", "An error occurred while fetching categories.");
         }
         categories.value = [];
         loading.value = false;
@@ -165,13 +166,14 @@ const fetchProducts = async () => {
         if (responseProduct.data ?.success) {
             products.value = responseProduct.data.products;
             loading.value = false;
-            showToast("success", "Products found successfully.");
+            // showToast("success", "Products found successfully.");
         } else {
             throw new Error('Failed to fetch products');
         }
     } catch (error) {
         if (error.response && error.response.status === 404) {
-            showToast("error", "Products not found.");
+            console.log('Products not found:', error);
+            // showToast("error", "Products not found.");
         }
         products.value = [];
         loading.value = false;
@@ -191,14 +193,14 @@ const handleFetchSubCategory = async (categorySlug, categoryId) => {
             });
         }
     } catch (error) {
-        showToast("error", "This category does not have sub-categories");
+        // showToast("error", "This category does not have sub-categories");
         console.log('something wrong', error);
     }
 };
 const handleAddToCart = async (id) => {
     if (!userData.value.token) {
         localStorage.setItem('redirectPath', window.location.pathname);
-        alert('Please log in to add items to the cart.');
+        // alert('Please log in to add items to the cart.');
         showToast("info", "Please log in to add items to the cart.");
         return router.push({
             name: 'Login'
@@ -222,7 +224,7 @@ const handleAddToCart = async (id) => {
             }
         }
     } catch (error) {
-        showToast("error", "Failed to add item to cart. Please try again.");
+        // showToast("error", "Failed to add item to cart. Please try again.");
         console.error('Error adding to cart:', error);
     }
 };
@@ -239,11 +241,11 @@ const detailProduct = async (slug, id) => {
             });
         } else {
             console.error('Product not found or API error:', responseProduct.data.message);
-            showToast("error", "Product not found.");
+            // showToast("error", "Product not found.");
         }
     } catch (error) {
         console.error('Error fetching product:', error);
-        showToast("error", "Error fetching product.");
+        // showToast("error", "Error fetching product.");
         // alert('An error occurred while fetching the product details.');
     }
 };
@@ -255,7 +257,7 @@ const fetchCoupons = async () => {
         }
     } catch (error) {
         console.error("Error fetching coupons:", error);
-        showToast("error", "Error fetching coupons.");
+        // showToast("error", "Error fetching coupons.");
     }
 };
 const gotToDeal = async (id) => {

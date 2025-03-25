@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-dark text-white py-4 footer-section">
     <div class="container text-center">
-      <p>&copy; 2025 E-Shop. All Rights Reserved.</p>
+      <p>&copy; 2025 E-Mart. All Rights Reserved.</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
         <li class="list-inline-item"><a href="#" class="text-white">Terms of Service</a></li>
