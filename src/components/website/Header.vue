@@ -3,15 +3,17 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-neutral">
         <div class="container-fluid">
             <a class="navbar-brand logo" href="#">
-                <img src="@/assets/e-img.webp" alt="E-Shop Icon" class="logo-icon" />
-                our-shop
+                <img src="@/assets/e-mart.jpeg" alt="E-Shop Icon" class="logo-icon" />
+                <!-- E-Mart -->
             </a>
+            
             <button class="navbar-toggler" type="button" @click="toggleNavbar" aria-controls="navbarNav" :aria-expanded="isNavbarOpen ? 'true' : 'false'" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navbar items -->
-            <div class="collapse navbar-collapse" :class="{ show: isNavbarOpen }" id="navbarNav">
+            <!-- <div class="collapse navbar-collapse" :class="{ show: isNavbarOpen }" id="navbarNav"> -->
+            <div class="navbar-collapse" :class="{ 'show': isNavbarOpen }" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
@@ -52,7 +54,7 @@
                             <li>
                                 <router-link to="/user/wishlist" class="dropdown-item">Wishlist</router-link>
                             </li>
-                            <li><a href="/settings" class="dropdown-item">Settings</a></li>
+                            <!-- <li><a href="/settings" class="dropdown-item">Settings</a></li> -->
                             <li><a class="dropdown-item logout" href="javascript:void(0)" v-if="token" @click="handleLogout">LogOut</a></li>
                         </ul>
                     </li>
@@ -107,7 +109,7 @@ const resetNavbarState = () => {
     isNavbarOpen.value = false;
 };
 const fetchUserProfileImage = async () => {
-    if(token.value === null) return;
+    if(!token.value) return;
     try {
         const response = await apiClient.get('/user/profile/image');
         if (response ?.data ?.success) {
@@ -158,6 +160,7 @@ onUnmounted(() => {
     width: 40px;
     height: 40px;
     margin-right: 10px;
+    border-radius: 50%!important;
 }
 
 /* Navbar link styles */

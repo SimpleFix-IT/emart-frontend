@@ -97,7 +97,7 @@ export default {
                 loading.value= false;
                 categories.value = response.data.allCategories;
                 CategoriesFilters.value =  response.data.allCategories
-                showToast("success", "Categories found successfully.");
+                // showToast("success", "Categories found successfully.");
             }
             else {
                 throw new Error('Failed to fetch categories');

@@ -149,13 +149,14 @@ const fetchProducts = async () => {
             maxPrice.value = Number(responseProduct.data.maxPrice);
             priceRange.value = [minPrice.value, maxPrice.value];
             loading.value = false;
-            showToast("success", "Products found successfully.");
+            // showToast("success", "Products found successfully.");
         } else {
             throw new Error('Failed to fetch products');
         }
     } catch (error) {
         if (error.response && error.response.status === 404) {
-            showToast("error", "Products not found.");
+            console.error('Products not found:');
+            // showToast("error", "Products not found.");
         }
         products.value = [];
         loading.value = false;
@@ -167,7 +168,7 @@ const toggleDescription = (productId) => {
 const handleAddToCart = async (id) => {
     if (!userData.value.token) {
         localStorage.setItem('redirectPath', window.location.pathname);
-        alert('Please log in to add items to the cart.');
+        // alert('Please log in to add items to the cart.');
         showToast("info", "Please log in to add items to the cart.");
         return router.push({
             name: 'Login'
