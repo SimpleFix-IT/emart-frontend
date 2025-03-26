@@ -1,7 +1,7 @@
 <template>
 <div class="cart-page">
     <div class="container py-5">
-        <h2 class="text-center mb-5">Your Shopping Cart</h2>
+        <h1 class="cart-text mb-5"><strong>Your Shopping Cart</strong></h1>
         <div class="loader">
             <div v-if="loading" class="text-center">
                 <div class="spinner-border text-primary" role="status">
@@ -259,6 +259,11 @@
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
+.empty-cart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btn-danger:hover {
     background-color: #c82333;
@@ -345,4 +350,23 @@ img.card-img-top.product-image {
     padding-top: 3rem !important;
     padding-bottom: 17rem !important;
 }
+.cart-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem; /* Adjust for responsiveness */
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: #333; /* Dark grey for a premium look */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Modern gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Gradient text effect */
+    letter-spacing: 2px;
+    padding-bottom: 10px; /* Space between text and border */
+    /* Centering the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width to align center */
+}
+
 </style>
