@@ -1,6 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Cookies from "js-cookie";
+import NotFound from '@/pages/empty/404.vue';
 import categoriesRoute   from '@/router/admin/Categories.js';
 import Auth              from '@/router/auth/Auth.js';
 import websiteRoute     from '@/router/website/Website';
@@ -13,6 +14,11 @@ import  paymentCheckoutRoute from '@/router/payments/Checkout.js';
 let routes = [];
 routes = routes.concat(Auth,websiteRoute,categoriesRoute,productRoutes,dealRoutes,couponRoutes,dashboardRoutes,userDashboardRoute,paymentCheckoutRoute);
 
+// ✅ 404 Catch-All Route (Should be the last route)
+routes.push({
+  path: "/:pathMatch(.*)*",
+  component: NotFound
+});
 const router = createRouter({
     history:createWebHistory(),
     routes

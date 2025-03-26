@@ -66,7 +66,6 @@
                     </p>
                     <div class="cta-buttons">
                         <a href="/" class="btn btn-primary btn-lg mb-3 mb-md-0 mr-md-3">Go Back Home</a>
-                        <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +218,9 @@ onMounted(() => {
 <style scoped>
 /* Hero Section */
 .hero-section {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffcc33); /* Warm, vibrant gradient */
+
+    /* background-color: #007bff; */
     color: white;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -240,8 +241,8 @@ onMounted(() => {
 }
 
 .hero-section .btn-deal {
-    background-color: #ff5733;
-    border-color: #ff5733;
+    background: #ffcc33;
+    /* background-color: #ff5733; */
     color: white;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
@@ -250,8 +251,7 @@ onMounted(() => {
 }
 
 .hero-section .btn-deal:hover {
-    background-color: #e04e2e;
-    border-color: #e04e2e;
+    background-color: #ff9900;
 }
 
 /* Deals Grid Section */
@@ -392,7 +392,7 @@ onMounted(() => {
     padding-bottom: 2rem !important;
 }
 .text-white {
-  color: rgb(68, 223, 76) !important;
+  color: rgb(45, 48, 45) !important;
 }
 
 .text-muted {

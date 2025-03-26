@@ -26,13 +26,7 @@ const userDashboardRoute= [
         props: true,
         component: () => import('@/pages/users/Orders.vue'),
     },  
-    {
-        path:'/test',
-        name: 'test',
-        meta: { requiresAuth: true },
-        props: true,
-        component: () => import('@/pages/users/test.vue'),
-    },  
+ 
     {
         path:'/user/wishlist',
         name: 'userWishlist',

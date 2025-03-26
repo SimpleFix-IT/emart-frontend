@@ -1,30 +1,12 @@
 <template>
 <div class="main-page">
     <!-- Carousel Section (Hero Section) -->
-    <section id="carouselSection" class="carousel slide nav-bar" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-inner">
-            <!-- Carousel Item 1 -->
-            <div class="carousel-item active">
-                <img src="@/assets/new-cimg.webp" class="d-block w-100" alt="Promo Image 1">
-            </div>
-            <!-- Carousel Item 2 -->
-            <div class="carousel-item">
-                <img src="@/assets/img2.webp" class="d-block w-100" alt="Promo Image 2">
-            </div>
-            <!-- Carousel Item 3 -->
-            <div class="carousel-item">
-                <img src="@/assets/img1.webp" class="d-block w-100" alt="Promo Image 3">
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+        <h1 class="hero-title">Welcome to E-Mart</h1>
+        <p class="hero-subtitle">Get the best deals on your favorite products</p>
+        <router-link to="/shop" class="hero-btn">Shop Now</router-link>
         </div>
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSection" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselSection" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </section>
     <div class="coupon-section-home" v-if="coupon && userData.token">
         <h4 class="coupon-title-home">
@@ -332,4 +314,75 @@ onMounted(() => {
 .text-muted {
   color: gray !important;
 }
+
+/* new hero section css */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 30vh; /* Medium screen coverage */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffcc33); /* Warm, vibrant gradient */
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.3); /* Light overlay for readability */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    background: #ffcc33;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+        padding: 10px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
 </style>

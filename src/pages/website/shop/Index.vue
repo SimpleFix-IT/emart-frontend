@@ -1,33 +1,12 @@
 <template>
 <div class="shop-page">
     <!-- Hero Section -->
-    <section id="carouselSection" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-inner">
-            <!-- Carousel Item 1 -->
-            <div class="carousel-item active">
-                <img src="@/assets/img2.webp" class="d-block w-100" alt="Promo Image 1">
-
-            </div>
-            <!-- Carousel Item 2 -->
-            <div class="carousel-item">
-                <img src="@/assets/img2.webp" class="d-block w-100" alt="Promo Image 2">
-
-            </div>
-            <!-- Carousel Item 3 -->
-            <div class="carousel-item">
-                <img src="@/assets/img1.webp" class="d-block w-100" alt="Promo Image 3">
-
-            </div>
+    <section class="shop-hero">
+        <div class="shop-hero-content">
+            <h1 class="shop-hero-title">Discover the Best Deals</h1>
+            <p class="shop-hero-subtitle">Explore a wide range of products at unbeatable prices.</p>
+            <router-link to="/categories" class="shop-hero-btn">Browse Categories</router-link>
         </div>
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSection" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselSection" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </section>
 
     <!-- Filters Section -->
@@ -310,4 +289,90 @@ onMounted(() => {
 .text-muted {
   color: gray !important;
 }
+
+
+/* hero section css */
+.shop-hero {
+    position: relative;
+    width: 100%;
+    height: 30vh; /* Adjusted for a balanced layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffcc33); /* Warm, vibrant gradient */
+
+}
+
+.shop-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+.shop-hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+}
+
+.shop-hero-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.shop-hero-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.shop-hero-btn {
+    background: #ffcc33;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shop-hero-btn:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .shop-hero {
+        height: 40vh;
+        padding: 10px;
+    }
+
+    .shop-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .shop-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .shop-hero-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
 </style>

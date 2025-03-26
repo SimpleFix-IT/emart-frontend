@@ -1,29 +1,13 @@
 <template>
 <div class="categories-page">
-    <section id="carouselSection" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="@/assets/img2.webp" class="d-block w-100" alt="Promo Image 1">
-                
-            </div>
-            <div class="carousel-item">
-                <img src="@/assets/img2.webp" class="d-block w-100" alt="Promo Image 2">
-               
-            </div>
-            <div class="carousel-item">
-                <img src="@/assets/img1.webp" class="d-block w-100" alt="Promo Image 3">
-                
-            </div>
+    <section class="categories-hero">
+        <div class="categories-hero-content">
+            <h1 class="categories-hero-title">Explore Our Categories</h1>
+            <p class="categories-hero-subtitle">Find exactly what you need from our wide range of categories.</p>
+            <router-link to="/shop" class="categories-hero-btn">Start Shopping</router-link>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSection" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselSection" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </section>
+
     <section class="filters-search py-4">
         <div class="container">
             <div class="row">
@@ -362,5 +346,90 @@ export default {
         font-size: 1.4rem;
     }
 } */
+
+
+/* hero section css */
+.categories-hero {
+    position: relative;
+    width: 100%;
+    height: 30vh; /* Adjusted for a premium look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffcc33); /* Warm, vibrant gradient */
+
+}
+
+.categories-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+.categories-hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+}
+
+.categories-hero-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.categories-hero-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.categories-hero-btn {
+    background: #ffcc33;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.categories-hero-btn:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .categories-hero {
+        height: 40vh;
+        padding: 10px;
+    }
+
+    .categories-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .categories-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .categories-hero-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
 
 </style>

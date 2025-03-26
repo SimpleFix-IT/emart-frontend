@@ -13,7 +13,9 @@
 
             <!-- Navbar items -->
             <!-- <div class="collapse navbar-collapse" :class="{ show: isNavbarOpen }" id="navbarNav"> -->
-            <div class="navbar-collapse" :class="{ 'show': isNavbarOpen }" id="navbarNav">
+            <!-- <div class="navbar-collapse" :class="{ 'show': isNavbarOpen }" id="navbarNav"> -->
+            <div class="navbar-collapse" :class="{ show: isNavbarOpen }" id="navbarNav" v-show="isNavbarOpen">
+
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
@@ -301,6 +303,12 @@ onUnmounted(() => {
     .navbar-toggler-icon {
         background-color: #ff9f00;
     }
+    /* .navbar-collapse {
+        display: none;
+    }
+    .navbar-collapse.show {
+        display: block;
+    } */
 }
 
 /* For very small screens (below 480px) */
@@ -431,4 +439,5 @@ onUnmounted(() => {
         width: 50px;
     }
 }
+
 </style>

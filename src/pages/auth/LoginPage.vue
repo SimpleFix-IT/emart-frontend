@@ -50,19 +50,19 @@ export default {
     const store = useStore();
     const handleLogin = async (values) => {
       try {
-        // const response = await apiClient.post("/login", values);
-        const encodedCredentials = btoa(`${values.email}:${values.password}`);
+        const response = await apiClient.post("/login", values);
+        // const encodedCredentials = btoa(`${values.email}:${values.password}`);
 
-        const response = await apiClient.post(
-          "/login",
-          {}, // Send empty body if API expects credentials in headers
-          {
-            headers: {
-              Authorization: `Basic ${encodedCredentials}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        // const response = await apiClient.post(
+        //   "/login",
+        //   {}, // Send empty body if API expects credentials in headers
+        //   {
+        //     headers: {
+        //       Authorization: `Basic ${encodedCredentials}`,
+        //       "Content-Type": "application/json",
+        //     },
+        //   }
+        // );
         if (response.data?.token && response.data?.role) {
           showToast("success", "Login successful!");
           store.dispatch("auth/login", {
